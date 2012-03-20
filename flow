@@ -1,0 +1,57 @@
+a very rough explanation...
+
+
+User types something in entry
+
+the trick is that the word may be more than one thing
+for example, user types 'adobe', we may show all adobe apps installed,
+as well as 'find adobe on amazon', etc
+
+
+So, as soon as user types something in entry, we run it through parse_input
+
+we split the input at the spaces. then we check if split[0] is a keyword.
+if it is, then we don't need to call other methods(ie, look in apps list, etc). if user types
+something like "define waterfall", split[0] is "define". So we are not interested in anything else.
+
+Now we must store that action - aka, bind it to a key (W + enter, W + 2, etc).
+So we check our self.bindings list for a free space, that is, a key that has an empty list as value.
+
+To do this, we loop through
+self.bindings and when we find our first empty value(list) we set its value,
+which is split[0] ("define") and " ".join(split[1:]) ("niagara falls")
+it ends up as something like this:
+{1: ['amazon', icon(img object), 'amazon', 'xc'],
+ 2: ['xchat irc', icon(img object) 'app', 'xchat'],
+ 3: [],
+ 4: [],
+ 5: [],
+ 6: [],
+ 7: [],
+ 8: []
+ }
+
+then when user presses W + 2 we check to see what '2' is binded to, and call that method
+
+Now, if split[0] is not a keyword, we do other checks.
+check for matches in the programs list. list top 5. 
+is the list less than 5? then also show other options such as "search for <input> on Amazon"
+
+The way we show results, is we just check if self.bindgs have  values. If so, we build the GUI
+part that shows the results.
+
+also note - sometimes user does not have to type a keyword. for example,  user types
+"kodak". no keyword here, just "kodek". Since kodek isn't a program in the computer, we give 
+options such as "search amazon for kodek", "search ebay for kodek", etc. it's invisible, but 
+'amazon' and 'ebay' are keywords. so when we store these in the bindings so we can show results,
+we store like
+
+{1: ['amazon', 'kodek'],
+ 2: ['ebay', 'kodek']}
+ 
+ so that when we press W + 1, we call self.amazon('kodek'), etc. if
+
+
+self.delete_last_char... this is used to decide if we should delete the last char in gtk.entry.
+if the user presses W + 2, '2' will be inserted into the entry box. We use this variable to
+prevent this from happening
