@@ -3,6 +3,7 @@ import gtk
 import os, sys
 from pprint import pprint as pp
 
+
 class dorothy:
 	
 	def __init__(self):
@@ -79,7 +80,8 @@ class dorothy:
 		# Creates icons to be shown in results
 		if cat == 'calc':
 			it = gtk.IconTheme()
-			pb = gtk.gdk.pixbuf_new_from_file('./icons/calculator.png')
+			p = os.path.dirname(os.path.abspath(__file__)) + "/icons/calculator.png"
+			pb = gtk.gdk.pixbuf_new_from_file(p)
 		elif cat == 'app':
 			# Some apps need adjusting. for instance, pycrust's .desktop file has this:
 			# Icon=/usr/share/pixmaps/pycrust. This here will not work. we have to split at /
@@ -101,10 +103,12 @@ class dorothy:
 						pb = it.load_icon(exe, 32, gtk.ICON_LOOKUP_FORCE_SVG)
 					except:
 						# And when there isn't use a generic terminal icon
-						pb = gtk.gdk.pixbuf_new_from_file('./icons/terminal.png')
+						p = os.path.dirname(os.path.abspath(__file__)) + "/icons/terminal.png"
+						pb = gtk.gdk.pixbuf_new_from_file(p)
 		else:
 			#print "Cat: %s" % cat
-			uri = './icons/%s.png' % cat
+			uri = os.path.dirname(os.path.abspath(__file__)) + "/icons/%s.png" % cat
+			#uri = './icons/%s.png' % cat
 			pb = gtk.gdk.pixbuf_new_from_file(uri)
 			
 		img = gtk.Image()

@@ -9,6 +9,7 @@ from gtk import gdk
 import cairo
 import string
 import pango
+import os
 
 
 class dorothyGUI:
@@ -25,7 +26,10 @@ class dorothyGUI:
 		
 		# Create our widgets
 		self.input = gtk.Entry()
-		icon = gtk.Button(" R ")
+		icon = gtk.Image()
+		p = os.path.dirname(os.path.abspath(__file__)) + "/dorothy.png"
+ 		icon.set_from_file(p)
+		
 		
 		font = pango.FontDescription("Monospace 23")
 		self.input.modify_font(font)
