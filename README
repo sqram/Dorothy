@@ -1,7 +1,0 @@
-You have to tell your OS/WM/DE which keys to launch Dorothy.
-For instance, you can set it up so that when you press ALT + SPACE, you
-fire up Dorothy ( $ python /path/to/dorothy.py )
-
-program still in beta. most of it works.
-needs refactoring?
-
