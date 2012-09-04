@@ -42,8 +42,7 @@ if you get syntax errors, it's because your system uses python 3 by default. Do 
 * needs refactoring?
 * __python2__, not python3.
 
-Some screenshots and more info can be found here:
-http://crunchbanglinux.org/forums/topic/17149/mmmcrunchbox/
+
 
 
 
