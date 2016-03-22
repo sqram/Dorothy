@@ -26,8 +26,10 @@ So whenever I press ALT + g, dorothy fires up.
 
 
 ## Screenshots
-![Screenshot](http://i.imgur.com/FOXqB.jpg)
-![Screenshot](http://i.imgur.com/UPe3c.jpg)
+<img src='http://i.imgur.com/mxfU3Iz.png' width='300' height='250' />
+<img src='http://i.imgur.com/i9QzhBr.jpg' width='300' height='250' />
+<img src='http://i.imgur.com/H9Zutho.jpg' width='300' height='250' />
+
 
 ## Dependencies
 Python2. If Dorothy isn't launching, make sure you're using pyhton2, not 3.  
